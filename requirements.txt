@@ -24,4 +24,4 @@ websockets==10.3
 yarl==1.8.1
 pydantic-settings==2.2.1
 numpy==1.26.3
-
+opencv-python==4.9.0.80
