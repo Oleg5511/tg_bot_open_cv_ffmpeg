@@ -133,6 +133,6 @@ dmypy.json
 model/
 *.wav
 *.ogg
-ffmpeg/ffmpeg.exe
+
 model.pt
 tmp/

@@ -1,8 +1,7 @@
 import subprocess
 from pathlib import Path
-from aiogram.types import ContentType, File, Message
+from aiogram.types import File
 from get_bot import get_bot
-from ffmpeg import Ffmpeg
 
 bot = get_bot()
 
@@ -18,10 +17,9 @@ async def convert_voice(file_name: str, path: str) -> File:
     try:
         file_path_in = f'{path}\{file_name}'
         file_path_out = f'{path}\convert_{file_name}.wav'
-        FFMPEG_PATH = Ffmpeg().ffmpeg_path
 
         # Формируем команду для конвертирования аудио в WAV с декодированием в PCM
-        command = [FFMPEG_PATH, "-i", file_path_in, "-vn", "-acodec", "pcm_s16le", "-ar", "16000", "-ac", "2",
+        command = ['ffmpeg/ffmpeg', "-i", file_path_in, "-vn", "-acodec", "pcm_s16le", "-ar", "16000", "-ac", "2",
                    file_path_out]
 
         # Выполняем команду с помощью subprocess
